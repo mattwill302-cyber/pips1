@@ -1,0 +1,62 @@
+:root{
+  --bg:#0f1720;
+  --card:#0b1220;
+  --accent:#8fcdff;
+  --cell:#07121a;
+  --cell-border:#163041;
+  --filled:#1b6b6b;
+  --text:#e6eef8;
+  --muted:#9fb7d6;
+  --highlight:#ffdd57;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background:linear-gradient(180deg,#06101a 0%, #0b1220 100%);
+  color:var(--text);
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:24px;
+}
+main{width:100%;max-width:980px}
+h1{margin:0 0 8px;font-size:28px}
+.subtitle{margin:0 0 16px;color:var(--muted)}
+#game{display:flex;gap:20px;align-items:flex-start}
+#grid-container{background:linear-gradient(180deg,#06151c, #081722);padding:16px;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,0,0.6)}
+#grid{display:grid;grid-template-columns:repeat(4,64px);grid-template-rows:repeat(4,64px);gap:8px}
+.cell{
+  width:64px;height:64px;border-radius:8px;background:var(--cell);border:2px solid var(--cell-border);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:var(--text);position:relative;cursor:pointer;
+}
+.cell.small{width:56px;height:56px}
+.cell .pip{font-size:18px}
+.cell .pip.secondary{font-size:14px;color:var(--muted);position:absolute;right:6px;bottom:6px}
+.cell.occupied{background:linear-gradient(180deg,#184a4a,#0f7a7a);color:#fff}
+.cell.highlight{outline:3px solid rgba(255,221,87,0.16);box-shadow:0 6px 18px rgba(0,0,0,0.5) inset}
+.block-boundary{
+  position:absolute;pointer-events:none;border:2px dashed rgba(255,255,255,0.04);box-sizing:border-box;border-radius:10px;
+}
+#sidebar{width:320px;display:flex;flex-direction:column;gap:12px}
+#targets, #pool{background:linear-gradient(180deg,#071826,#081722);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+#block-targets{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.target-box{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;text-align:center;font-weight:700}
+.target-box .label{font-size:12px;color:var(--muted);margin-bottom:6px}
+#domino-pool{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.domino{
+  display:flex;gap:6px;align-items:center;padding:8px;border-radius:8px;background:var(--card);cursor:pointer;border:1px solid rgba(255,255,255,0.02);min-width:84px;justify-content:center;
+}
+.domino.selected{outline:3px solid rgba(143,205,255,0.14);box-shadow:0 6px 22px rgba(0,0,0,0.6) inset}
+.domino .half{width:28px;height:28px;border-radius:6px;background:linear-gradient(180deg,#0d2b34,#08343a);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--text)}
+#controls{display:flex;gap:8px}
+button{background:var(--card);color:var(--text);padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+#message{min-height:36px;color:var(--accent);margin-top:8px}
+footer{margin-top:16px;color:var(--muted);font-size:13px}
+@media (max-width:840px){
+  #game{flex-direction:column;align-items:center}
+  #sidebar{width:100%}
+  #grid{grid-template-columns:repeat(4,52px);grid-template-rows:repeat(4,52px)}
+  .cell{width:52px;height:52px}
+}
