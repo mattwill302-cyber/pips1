@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Domino Blocks — place dominos to meet block sums</title>
+  <meta name="description" content="Domino Blocks: place 1x2 dominos into a 4x4 grid to meet the numerical requirements for each 2x2 block." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>Domino Blocks</h1>
+    <p class="subtitle">Place the 1×2 dominos into the 4×4 grid so each 2×2 block meets its target sum. Dominos have two pips (1–6). You can place them horizontally or vertically by selecting a domino then two adjacent cells.</p>
+
+    <section id="game">
+      <div id="grid-container">
+        <div id="grid" aria-label="4x4 grid"></div>
+      </div>
+
+      <aside id="sidebar">
+        <div id="targets" aria-label="block targets">
+          <h2>Block Targets</h2>
+          <div id="block-targets"></div>
+        </div>
+
+        <div id="pool">
+          <h2>Domino Pool</h2>
+          <div id="domino-pool"></div>
+        </div>
+
+        <div id="controls">
+          <button id="undo">Undo last</button>
+          <button id="restart">Restart</button>
+        </div>
+
+        <div id="message" role="status" aria-live="polite"></div>
+      </aside>
+    </section>
+
+    <details>
+      <summary>How to play</summary>
+      <ol>
+        <li>Select a domino from the pool.</li>
+        <li>Click two adjacent empty cells (horizontally or vertically) to place it. The first clicked cell receives the domino's first pip, the second clicked cell receives the second pip.</li>
+        <li>Fill the entire 4×4 grid. The four 2×2 blocks (top-left, top-right, bottom-left, bottom-right) show target sums — your final placement must make each block's cell-sum equal its target.</li>
+        <li>If you finish and all block targets match, you win.</li>
+      </ol>
+    </details>
+
+    <footer>
+      <p>Built by mattwill302-cyber — independent puzzle inspired by domino-placement concepts.</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
